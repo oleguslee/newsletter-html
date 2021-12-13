@@ -1,0 +1,22 @@
+{
+  "name": "email-starter-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "npx npm-force-resolutions",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-inline-css": "^3.5.0",
+    "gulp-inline-source": "^4.0.0",
+    "gulp-sass": "^3.0.0",
+    "inky": "^1.4.2"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.4"
+  }
+}
