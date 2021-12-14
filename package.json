@@ -11,12 +11,13 @@
   "license": "ISC",
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-inline-css": "^3.5.0",
+    "gulp-inline-css": "^4.0.0",
     "gulp-inline-source": "^4.0.0",
-    "gulp-sass": "^3.0.0",
-    "inky": "^1.4.2"
+    "gulp-sass": "^5.0.0",
+    "inky": "^1.4.2",
+    "sass": "^1.45.0"
   },
   "resolutions": {
-    "graceful-fs": "^4.2.4"
+    "graceful-fs": "^4.0.0"
   }
 }

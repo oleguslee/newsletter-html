@@ -1,30 +1,33 @@
-var gulp = require('gulp'),
-  sass = require('gulp-sass'),
-  inky = require('inky'),
-  inlineCss = require('gulp-inline-css'),
-  inlinesource = require('gulp-inline-source');
-
+var gulp = require("gulp"),
+  inky = require("inky"),
+  inlineCss = require("gulp-inline-css"),
+  inlinesource = require("gulp-inline-source");
+const sass = require("gulp-sass")(require("sass"));
 
 //STYLES
-gulp.task('styles', function () {
-  return gulp.src('./scss/*.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./css'));
+gulp.task("styles", function () {
+  return gulp
+    .src("./scss/*.scss")
+
+    .pipe(sass().on("error", sass.logError))
+    .pipe(gulp.dest("./css"));
 });
 
 //CONVERTE INKY
-gulp.task('inky', ['styles'], function () {
-  return gulp.src('./templates/**/*.html')
+gulp.task("inky", ["styles"], function () {
+  return gulp
+    .src("./templates/**/*.html")
     .pipe(inlinesource())
     .pipe(inky())
-    .pipe(inlineCss({
-      preserveMediaQueries: true,
-      removeLinkTags: false
-    }))
-    .pipe(gulp.dest('./dist'));
+    .pipe(
+      inlineCss({
+        preserveMediaQueries: true,
+      })
+    )
+    .pipe(gulp.dest("./dist"));
 });
 
 //WATCH
-gulp.task('default', function () {
-  gulp.watch(['./scss/**/*.scss', './templates/**/*.html'], ['inky']);
+gulp.task("default", function () {
+  gulp.watch(["./scss/**/*.scss", "./templates/**/*.html"], ["inky"]);
 });

@@ -7,8 +7,10 @@
 /// @param {number} $colNumber - Column count of the column.
 /// @param {number} $totalColumns - Column count of the entire row.
 /// @returns {number} A percentage width value.
+@use "sass:math";
+
 @function -zf-grid-calc-pct($colNumber, $totalColumns) {
-  @return floor(percentage(($colNumber / $totalColumns)) * 1000000) / 1000000;
+  @return math.div(floor(percentage(math.div($colNumber, $totalColumns)) * 1000000), 1000000);
 }
 
 /// Calculates a pixel value for a grid column width.
@@ -18,5 +20,5 @@
 /// @param {number} $containerWidth - Width of the surrounding container, in pixels.
 /// @returns {number} A pixel width value.
 @function -zf-grid-calc-px($columnNumber, $totalColumns, $containerWidth) {
-  @return ($containerWidth / $totalColumns * $columnNumber - $global-gutter);
+  @return (math.div($containerWidth, $totalColumns) * $columnNumber - $global-gutter);
 }
