@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-  sass = require('gulp-sass'),
+  sass = require('gulp-sass')(require('sass')),
   inky = require('inky'),
   inlineCss = require('gulp-inline-css');
 
